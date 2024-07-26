@@ -10,10 +10,13 @@ import { functions } from '@/redux/store';
  * @param {function} dispatch - The dispatch function for managing state.
  * @return {Object} - An object containing a status and data containing the session.
  */
-const createChatSession = async (payload, dispatch) => {
+const createToolsHistory = async (payload, dispatch) => {
   try {
-    const createSession = httpsCallable(functions, 'createChatSession');
-    const response = await createSession(payload);
+    const createToolsHistorySession = httpsCallable(
+      functions,
+      'createToolsHistory'
+    );
+    const response = await createToolsHistorySession(payload);
     return response.data;
   } catch (err) {
     dispatch(setError('Error! Couldn\u0027t send message'));
@@ -26,4 +29,4 @@ const createChatSession = async (payload, dispatch) => {
   }
 };
 
-export default createChatSession;
+export default createToolsHistory;
